@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Food Waste Reduction Platform - Eco-Friendly Design System */
+
+@layer base {
+  :root {
+    /* Core eco-friendly palette */
+    --background: 85 25% 97%;
+    --foreground: 150 40% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 40% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 40% 12%;
+
+    /* Forest green primary */
+    --primary: 152 45% 28%;
+    --primary-foreground: 85 25% 97%;
+
+    /* Warm amber secondary */
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 150 40% 12%;
+
+    /* Soft sage muted */
+    --muted: 120 15% 92%;
+    --muted-foreground: 150 20% 40%;
+
+    /* Fresh lime accent */
+    --accent: 88 50% 53%;
+    --accent-foreground: 150 40% 12%;
+
+    /* Coral destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 120 15% 85%;
+    --input: 120 15% 85%;
+    --ring: 152 45% 28%;
+
+    --radius: 0.75rem;
+
+    /* Status colors */
+    --status-available: 152 45% 28%;
+    --status-requested: 38 92% 50%;
+    --status-accepted: 88 50% 53%;
+    --status-collected: 200 70% 50%;
+    --status-expired: 0 50% 50%;
+
+    /* Custom gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(152 45% 28%) 0%, hsl(88 50% 53%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(85 25% 97%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(45 93% 58%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(150 40% 12% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(150 40% 12% / 0.1), 0 2px 4px -2px hsl(150 40% 12% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(150 40% 12% / 0.1), 0 4px 6px -4px hsl(150 40% 12% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(150 40% 12% / 0.1), 0 8px 10px -6px hsl(150 40% 12% / 0.1);
+
+    /* Sidebar */
+    --sidebar-background: 152 45% 28%;
+    --sidebar-foreground: 85 25% 97%;
+    --sidebar-primary: 88 50% 53%;
+    --sidebar-primary-foreground: 150 40% 12%;
+    --sidebar-accent: 152 35% 35%;
+    --sidebar-accent-foreground: 85 25% 97%;
+    --sidebar-border: 152 35% 35%;
+    --sidebar-ring: 88 50% 53%;
+  }
+
+  .dark {
+    --background: 150 30% 8%;
+    --foreground: 85 25% 95%;
+
+    --card: 150 25% 12%;
+    --card-foreground: 85 25% 95%;
+
+    --popover: 150 25% 12%;
+    --popover-foreground: 85 25% 95%;
+
+    --primary: 88 50% 53%;
+    --primary-foreground: 150 40% 12%;
+
+    --secondary: 38 80% 45%;
+    --secondary-foreground: 85 25% 95%;
+
+    --muted: 150 20% 18%;
+    --muted-foreground: 120 15% 65%;
+
+    --accent: 152 45% 35%;
+    --accent-foreground: 85 25% 95%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 20% 22%;
+    --input: 150 20% 22%;
+    --ring: 88 50% 53%;
+
+    --sidebar-background: 150 30% 10%;
+    --sidebar-foreground: 85 25% 95%;
+    --sidebar-primary: 88 50% 53%;
+    --sidebar-primary-foreground: 150 40% 12%;
+    --sidebar-accent: 150 25% 18%;
+    --sidebar-accent-foreground: 85 25% 95%;
+    --sidebar-border: 150 20% 22%;
+    --sidebar-ring: 88 50% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 shadow-lg;
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .status-badge-available {
+    @apply bg-primary/10 text-primary border-primary/20;
+  }
+
+  .status-badge-requested {
+    @apply bg-secondary/10 text-secondary border-secondary/20;
+  }
+
+  .status-badge-accepted {
+    @apply bg-accent/10 text-accent border-accent/20;
+  }
+
+  .status-badge-collected {
+    @apply bg-blue-500/10 text-blue-600 border-blue-500/20;
+  }
+
+  .status-badge-expired {
+    @apply bg-destructive/10 text-destructive border-destructive/20;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
